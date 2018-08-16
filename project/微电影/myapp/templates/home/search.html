@@ -1,0 +1,30 @@
+{% extends 'home/home.html' %}
+{% from 'paginate/paginate_macro.html' import page %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb" style="margin-top:6px;">
+                <li>与"{{ value }}"有关的电影，共{{ movie_count }}部</li>
+            </ol>
+        </div>
+        <div class="col-md-12">
+            {% for movie in movies.items %}
+            <div class="media">
+                <div class="media-left">
+                    <a href="{{ url_for('project.play',id=movie.id,page=1) }}">
+                        <img class="media-object" style="width: 131px;height: 83px" src="{{ url_for('static',filename='upload/logo/'+movie.logo) }}" alt="{{ movie.title }}">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ movie.title }}<a href="{{ url_for('project.play',id=movie.id,page=1) }}" class="label label-primary pull-right"><span
+                            class="glyphicon glyphicon-play"></span>播放影片</a></h4>
+                    {{ movie.info }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-12 text-center">
+            {{ page(movies,'project.search') }}
+        </div>
+    </div>
+{% endblock %}

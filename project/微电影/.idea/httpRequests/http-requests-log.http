@@ -1,0 +1,48 @@
+POST http://localhost:5000/api/v1/user/?username=刘勇&password=888888
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-07-16T074442.200.json
+
+###
+
+POST http://localhost:5000/api/v1/user/?username=李坏&password=888888
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-07-16T074410.200.json
+
+###
+
+POST http://localhost:5000/api/v1/user/?username=李坏&password=888888
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-07-16T074158.200.json
+
+###
+
+POST http://localhost:5000/api/v1/user/?username=李坏&password=888888
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-07-16T074042.200.json
+
+###
+
+GET http://localhost:5000/api/v1/user/?userid=3
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-07-16T072703.200.json
+
+###
+
+GET http://localhost:5000/api/v1/user/?userid=1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-07-16T072640.200.json
+
+###
+

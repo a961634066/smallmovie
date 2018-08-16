@@ -1,0 +1,32 @@
+{#自定义分页宏#}
+{% macro page(paginate_data,endpoint_url,id) %}
+    {% if paginate_data %}
+        <ul class="pagination pagination-sm no-margin pull-right">
+            <li><a href="{{ url_for(endpoint_url,page=1,id=id) }}">首页</a></li>
+            {% if paginate_data.has_prev %}
+                <li><a href="{{ url_for(endpoint_url,page=paginate_data.prev_num,id=id) }}">上一页</a></li>
+            {% else %}
+                <li class="disabled"><a href="#">上一页</a></li>
+            {% endif %}
+
+
+            {% for page in paginate_data.iter_pages() %}
+                {% if page == paginate_data.page %}
+                    <li class="active"><a href="#">{{ page }}</a></li>
+                {% else %}
+                    <li><a href="{{ url_for(endpoint_url,page=page,id=id) }}">{{ page }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+
+
+            {% if paginate_data.has_next %}
+                <li><a href="{{ url_for(endpoint_url,page=paginate_data.next_num,id=id) }}">下一页</a></li>
+            {% else %}
+                <li class="disabled"><a href="#">下一页</a></li>
+            {% endif %}
+
+            <li><a href="{{ url_for(endpoint_url,page=paginate_data.pages,id=id) }}">尾页</a></li>
+        </ul>
+    {% endif %}
+{% endmacro %}
